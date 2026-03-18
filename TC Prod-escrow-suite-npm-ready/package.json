@@ -1,0 +1,66 @@
+{
+  "name": "@itsclem-cell/evm-escrow-suite",
+  "version": "1.0.0",
+  "description": "Production-grade programmable escrow suite for EVM-compatible applications.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/@itsclem-cell/evm-escrow-suite.git"
+  },
+  "homepage": "https://github.com/@itsclem-cell/evm-escrow-suite#readme",
+  "bugs": {
+    "url": "https://github.com/@itsclem-cell/evm-escrow-suite/issues"
+  },
+  "keywords": [
+    "escrow",
+    "evm",
+    "solidity",
+    "payments",
+    "smart-contracts",
+    "typescript",
+    "sdk",
+    "web3"
+  ],
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "contracts",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "clean": "rm -rf dist cache artifacts typechain-types",
+    "build": "tsc -p tsconfig.json",
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "pack:check": "npm pack --dry-run",
+    "prepublishOnly": "npm run clean && npm run build && npm test && npm run pack:check"
+  },
+  "dependencies": {
+    "ethers": "^6.13.2"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@openzeppelin/contracts": "^5.0.2",
+    "@types/node": "^22.13.10",
+    "dotenv": "^16.4.5",
+    "hardhat": "^2.22.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  }
+}
